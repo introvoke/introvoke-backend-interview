@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  server:
+    build:
+      context: ./server
+      args:
+        EXPOSE_PORT: ${SERVER_PORT}
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+    volumes:
+      - ./server:/server
+    depends_on:
+      - mongo
+    environment:
+      PORT: ${SERVER_PORT}
+      MONGODB_URI: mongodb://mongo:27017
+  mongo:
+    image: mongo
+    restart: always
+    # suppress logs, remove this line to see mongo output
+    command: mongod --quiet --logpath /dev/null
+    # in-memory only, remove this to persist data within the container
+    volumes:
+      - type: tmpfs
+        target: /data/db
