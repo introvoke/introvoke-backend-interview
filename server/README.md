@@ -19,5 +19,3 @@ Feel free to use any frameworks or tools to aid you in completing this project. 
 ## Running in a container
 
 If running the server within a Docker container, you may change your code and install dependencies as you would normally. The compose file links the volume within this directory to allow for changes to instantly update the code within the container.
-
-You may also connect to the MongoDB database container from the server container by using the following URI: `mongodb://mongo:27017`. Checkout the [Docker Compose YAML file](../docker-compose.yml) for information on current configurations.

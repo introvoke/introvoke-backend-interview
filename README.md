@@ -47,15 +47,15 @@ We have also provided a [Postman collection](/Backend%20Interview%20Project.post
 
 ## Getting Started
 
-This project is currently setup with [Docker](https://www.docker.com/) and (Docker Compose)[https://docs.docker.com/compose/]. The `/server` directory contains a ready-to-go NodeJS Typescript project that will auto-reload when changes are made. A (MongoDB)[https://www.mongodb.com/] container is also setup and ready to be called from local ports (and from within the server container). If you wish to use a different language or your own environment, feel free to start from scratch.
+This project is currently setup with [Docker](https://www.docker.com/) and (Docker Compose)[https://docs.docker.com/compose/]. The `/server` directory contains a ready-to-go NodeJS Typescript project that will auto-reload when changes are made. If you wish to use a different language or your own environment, feel free to start from scratch.
 
-To start, let's build and run the docker containers. From the root of this directory, run the following command:
+To start, let's build and run the docker container. From the root of this directory, run the following command:
 
 ```bash
 docker-compose build
 ```
 
-This will build the docker container images and automatically run the NPM install script for the server within the server Docker container.
+This will build the docker container image and automatically run the NPM install script for the server within the server Docker container.
 
 Next, we can start the containers using the following:
 
