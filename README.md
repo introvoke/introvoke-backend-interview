@@ -24,48 +24,13 @@ Feel free to use any tools to help aid you in completing this assignment.
   - The username of the user who sent the message
   - The time the message was created and/or updated
 
+You may also create any additional routes that you believe would be beneficial.
+
 Your API should follow REST methodology for managing the state of the chat messages. Below is what is expected when calling your API endpoints:
 
 - All requests that take or return a body payload must be of content type `application/json`
-- All API routes must be under the `/messages` route
-  - Example: `GET http://localhost:8080/messages` would return all the messages
 - It is expected that all routes return expected status codes and payloads respective to their operations
-  - Example: A user makes a request to `POST http://localhost:8080/messages` with a missing property, it is expected that your API return a `400` status code and a body containing the error
-
-### Requests
-
-You must implement the following requests:
-
-- `GET /messages`
-  - Returns all the chat messages
-  - Params: None
-  - Response: Success status code and JSON body containing all the current chat messages
-- `GET /messages/{{messageId}}`
-  - Returns a single chat message by id
-  - Params:
-    - `messageId`: The id of the message to get
-  - Response: Success status code and JSON body containing the chat message
-- `POST /messages`
-  - Creates a new message and returns it
-  - Params: None
-  - Payload: A JSON body containing the following required properties:
-    - The username of the user creating the message
-    - The message text for the chat message
-  - Response: Success status code and JSON body containing the chat message that was created
-- `PATCH /messages/{{messageId}}`
-  - Updates an existing message by id and returns it
-  - Params:
-    - `messageId`: The id of the message to update
-  - Payload: A JSON body containing the following required properties:
-    - The updated message
-  - Response: Success status code and JSON body containing the updated chat message
-- `DELETE /messages/{{messageId}}`
-  - Deletes a single chat message by id
-  - Params:
-    - `messageId`: The id of the message to delete
-  - Response: Success status code and no body
-
-You may also create any additional routes that you believe would be beneficial.
+  - Example: A user makes a `POST` request to your API with a missing property, it is expected that your API return an error status code and optional error message in the body
 
 ### Bonus
 

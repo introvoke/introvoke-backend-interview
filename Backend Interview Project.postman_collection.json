@@ -28,13 +28,12 @@
 									"    pm.response.to.be.withBody;",
 									"    pm.response.to.be.json;",
 									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
-									"    const responseJson = pm.response.json();",
-									"    pm.expect(responseJson.id).to.exist",
 									"});",
 									"",
 									"// save response from the response body so we can access this data in this chain",
+									"// TODO: update below with the ID of your message if using a different property name",
 									"let response = pm.response.json();",
-									"let messageId = response.id;",
+									"let messageId = response.id; // Update to your ID here",
 									"pm.collectionVariables.set(\"messageId\", messageId);",
 									""
 								],
@@ -55,12 +54,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/messages",
+							"raw": "{{domain}}/{{route}}",
 							"host": [
-								"{{url}}"
+								"{{domain}}"
 							],
 							"path": [
-								"messages"
+								"{{route}}"
 							]
 						}
 					},
@@ -77,9 +76,6 @@
 									"    pm.response.to.be.ok;",
 									"    pm.response.to.be.withBody;",
 									"    pm.response.to.be.json;",
-									"    pm.response.to.have.status(200);",
-									"    const responseJson = pm.response.json();",
-									"    pm.expect(responseJson.id).to.exist",
 									"});",
 									""
 								],
@@ -91,12 +87,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/messages/{{messageId}}",
+							"raw": "{{domain}}/{{route}}/{{messageId}}",
 							"host": [
-								"{{url}}"
+								"{{domain}}"
 							],
 							"path": [
-								"messages",
+								"{{route}}",
 								"{{messageId}}"
 							]
 						}
@@ -114,7 +110,6 @@
 									"    pm.response.to.be.ok;",
 									"    pm.response.to.be.withBody;",
 									"    pm.response.to.be.json;",
-									"    pm.response.to.have.status(200);",
 									"});",
 									""
 								],
@@ -126,12 +121,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/messages",
+							"raw": "{{domain}}/{{route}}",
 							"host": [
-								"{{url}}"
+								"{{domain}}"
 							],
 							"path": [
-								"messages"
+								"{{route}}"
 							]
 						}
 					},
@@ -148,9 +143,6 @@
 									"    pm.response.to.be.ok;",
 									"    pm.response.to.be.withBody;",
 									"    pm.response.to.be.json;",
-									"    pm.response.to.have.status(200);",
-									"    const responseJson = pm.response.json();",
-									"    pm.expect(responseJson.id).to.exist",
 									"});"
 								],
 								"type": "text/javascript"
@@ -170,12 +162,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/messages/{{messageId}}",
+							"raw": "{{domain}}/{{route}}/{{messageId}}",
 							"host": [
-								"{{url}}"
+								"{{domain}}"
 							],
 							"path": [
-								"messages",
+								"{{route}}",
 								"{{messageId}}"
 							]
 						}
@@ -201,12 +193,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/messages/{{messageId}}",
+							"raw": "{{domain}}/{{route}}/{{messageId}}",
 							"host": [
-								"{{url}}"
+								"{{domain}}"
 							],
 							"path": [
-								"messages",
+								"{{route}}",
 								"{{messageId}}"
 							]
 						}
@@ -239,7 +231,7 @@
 			"name": "Error Handling",
 			"item": [
 				{
-					"name": "Missing message",
+					"name": "Missing username",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -278,19 +270,19 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/messages",
+							"raw": "{{domain}}/{{route}}",
 							"host": [
-								"{{url}}"
+								"{{domain}}"
 							],
 							"path": [
-								"messages"
+								"{{route}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Missing username",
+					"name": "Missing message",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -329,12 +321,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/messages",
+							"raw": "{{domain}}/{{route}}",
 							"host": [
-								"{{url}}"
+								"{{domain}}"
 							],
 							"path": [
-								"messages"
+								"{{route}}"
 							]
 						}
 					},
@@ -370,12 +362,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/messages/{{messageId}}",
+							"raw": "{{domain}}/{{route}}/{{messageId}}",
 							"host": [
-								"{{url}}"
+								"{{domain}}"
 							],
 							"path": [
-								"messages",
+								"{{route}}",
 								"{{messageId}}"
 							]
 						}
@@ -412,12 +404,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/messages/{{messageId}}",
+							"raw": "{{domain}}/{{route}}/{{messageId}}",
 							"host": [
-								"{{url}}"
+								"{{domain}}"
 							],
 							"path": [
-								"messages",
+								"{{route}}",
 								"{{messageId}}"
 							]
 						}
@@ -473,8 +465,12 @@
 			"value": ""
 		},
 		{
-			"key": "url",
+			"key": "domain",
 			"value": "http://localhost:8080"
+		},
+		{
+			"key": "route",
+			"value": "api/messages"
 		}
 	]
 }
